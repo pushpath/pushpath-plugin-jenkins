@@ -34,8 +34,7 @@ file { "/vagrant_www/home":
 # Jenkins
 ###############################################################################
 
-class { 'java':
-}
+class { 'java': }
 
 class { 'jenkins':
   require => Package['java'],
