@@ -28,7 +28,7 @@ iptables -A INPUT -p tcp -m tcp --sport 80 -j ACCEPT
 iptables -A INPUT -p tcp -m tcp --sport 443 -j ACCEPT
 iptables -A INPUT -p tcp -m tcp --sport 8080 -j ACCEPT
 iptables -P OUTPUT ACCEPT
-iptables-save | sudo tee /etc/sysconfig/iptables
+iptables-save
 service iptables restart
 
 ###############################################################################
