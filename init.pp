@@ -45,3 +45,39 @@ class { 'jenkins':
 jenkins::plugin {
   'ruby':;
 }
+
+###############################################################################
+# Packages
+###############################################################################
+
+package { 'firefox':
+  ensure => installed
+}
+
+package { 'xorg-x11-server-Xvfb':
+  ensure => installed
+}
+
+exec { 'Yum Group Install X Window System':
+  unless => 'yum grouplist "X Window System" | grep "^Installed Groups"',
+  command => 'yum -y groupinstall "X Window System"',
+  path => ['/usr/bin/', '/bin/']
+}
+
+exec { 'Yum Group Install Desktop':
+  unless => 'yum grouplist "Desktop" | grep "^Installed Groups"',
+  command => 'yum -y groupinstall "Desktop"',
+  path => ['/usr/bin/', '/bin/']
+}
+
+exec { 'Yum Group Install Fonts':
+  unless => 'yum grouplist "Fonts" | grep "^Installed Groups"',
+  command => 'yum -y groupinstall "Fonts"',
+  path => ['/usr/bin/', '/bin/']
+}
+
+exec { 'Yum Group Install General Purpose Desktop':
+  unless => 'yum grouplist "General Purpose Desktop" | grep "^Installed Groups"',
+  command => 'yum -y groupinstall "General Purpose Desktop"',
+  path => ['/usr/bin/', '/bin/']
+}
