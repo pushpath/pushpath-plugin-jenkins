@@ -40,9 +40,8 @@ class { 'jenkins':
   require => Package['java'],
 }
 
+# Install plugin by hand @see https://wiki.jenkins-ci.org/display/JENKINS/Plugins#Plugins-Byhand
+# You may add your plugins as you wish
 jenkins::plugin {
-  'git':;
   'ruby':;
-  'rake':;
-  'ssh':;
 }
